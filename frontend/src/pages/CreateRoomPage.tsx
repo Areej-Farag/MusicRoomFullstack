@@ -14,7 +14,9 @@ export default function CreateRoomPage() {
             const response = await axios.post('http://localhost:8000/api/room/create/', createRoom, {
                 headers: {
                     'Content-Type': 'application/json'
-                }
+                },
+                withCredentials: true
+
             });
 
             navigate(`/room/${response.data.code}`);
