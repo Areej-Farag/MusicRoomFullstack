@@ -11,13 +11,11 @@ export default function CreateRoomPage() {
     const handleCreateRoom = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/api/room/create/', createRoom, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                withCredentials: true
-
-            });
+            const response = await axios.post(
+                'http://127.0.0.1:8001/api/room/create/',
+                createRoom,
+                { withCredentials: true }
+            );
 
             navigate(`/room/${response.data.code}`);
         } catch (error) {

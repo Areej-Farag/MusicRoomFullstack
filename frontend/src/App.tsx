@@ -14,6 +14,7 @@ import {
 
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import UpdateRoomPage from './pages/UpdateRoomPage';
 
 function App() {
   const [roomCode, setRoomCode] = useState<string | null>(null);
@@ -23,7 +24,7 @@ function App() {
     const checkUserInRoom = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:8000/api/user-in-room/',
+          'http://127.0.0.1:8001/api/user-in-room/',
           { withCredentials: true }
         );
 
@@ -68,6 +69,7 @@ function App() {
           <Route path="/join-room" element={<RoomJoinPage />} />
 
           <Route path="/create-room" element={<CreateRoomPage />} />
+          <Route path="/update-room/:id" element={<UpdateRoomPage />} />
 
           <Route path="/room/:id" element={<RoomPage />} />
         </Routes>
